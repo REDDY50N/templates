@@ -1,0 +1,14 @@
+[Unit]
+Description=My System Watcher Service
+After=network.target
+
+[Service]
+User=root
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/bin/bash     /opt/<user>/yourService.sh start
+ExecStop=/bin/bash      /opt/<user>/yourService.sh stop
+
+[Install]
+WantedBy=multi-user.target
+

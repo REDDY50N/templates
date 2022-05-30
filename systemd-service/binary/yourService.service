@@ -1,0 +1,14 @@
+[Unit]
+Description=This service lets <myApp> constantly polling <myDevice>
+#After=network.target
+
+[Service]
+User=root
+#Type=oneshot
+RemainAfterExit=true
+ExecStart=/bin/bash /opt/`whoami`/yourService start
+ExecStop=/bin/bash /opt/`whoami`/yourService stop
+
+[Install]
+WantedBy=multi-user.target
+
